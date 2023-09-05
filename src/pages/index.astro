@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/landing/Hero.astro";
+import Body from "../components/landing/Body.astro";
+import Testimonials from "../components/landing/Testimonials.astro";
+import Features from "../components/landing/Features.astro";
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<AstroSeo
+  title="Yousef Elassal "
+  description="Yousef Elassal portfolio"
+  canonical="https://yousefelassal.me"
+/>
+<BaseLayout>
+  <Hero />
+  <Body />
+  <Testimonials />
+  <Features />
+</BaseLayout>
