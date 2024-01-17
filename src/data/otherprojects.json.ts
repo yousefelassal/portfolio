@@ -16,7 +16,7 @@ const library: Template = {
 };
 const todoApp: Template = {
   url: "https://todo-iicr7kx4p-yousefelassal.vercel.app/",
-  description: "A work in progress Spotify clone",
+  description: "Add tasks to your todo list and mark them as done.",
   title: "Todo App"
 };
 const roomfinder: Template = {
