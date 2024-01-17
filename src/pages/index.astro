@@ -10,7 +10,27 @@ import { AstroSeo } from "@astrolib/seo";
 <AstroSeo
   title="Yousef Elassal "
   description="Yousef Elassal portfolio"
-  canonical="https://yousefelassal.me"
+  canonical="https://www.yousefelassal.me"
+  openGraph={{
+    url: "https://www.yousefelassal.me/",
+    title: "Yousef Elassal portfolio",
+    description: "Yousef Elassal portfolio",
+    images: [
+      {
+        url: "https://utfs.io/f/04b8a070-0ca0-436c-9efc-feabb05c3603-2nqmir.PNG",
+        width: 981,
+        height: 231,
+        alt: "open graph",
+        type: "image/png",
+      }
+    ],
+    site_name: "Yousef Elassal portfolio",
+  }}
+  twitter={{
+    handle: "@yousefalassal",
+    site: "@yousefalassal",
+    cardType: "summary_large_image",
+  }}
 />
 <BaseLayout>
   <Hero />
