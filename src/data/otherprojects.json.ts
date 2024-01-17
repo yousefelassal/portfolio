@@ -4,15 +4,20 @@ export interface Template {
   title: string;
 };
 
+const recipesApp: Template = {
+  url: "https://recipe-app-six-rho.vercel.app/",
+  description: "Experimenting with Sanity CMS.",
+  title: "Recipes Headless CMS"
+};
 const library: Template = {
   url: "https://library-nine-blond.vercel.app/",
   description: "Add your favorite books to your library or search for new ones.",
   title: "Library"
 };
-const spotifyclone: Template = {
-  url: "https://github.com/yousefelassal/spotify-clone",
+const todoApp: Template = {
+  url: "https://todo-iicr7kx4p-yousefelassal.vercel.app/",
   description: "A work in progress Spotify clone",
-  title: "Spotify Clone"
+  title: "Todo App"
 };
 const roomfinder: Template = {
   url: "https://room-finder-beryl.vercel.app/",
@@ -21,11 +26,9 @@ const roomfinder: Template = {
 };
 
 export const byName = {
-
+  recipesApp,
   library,
-  spotifyclone,
+  todoApp,
   roomfinder,
-
-
 };
 export const otherprojects = Object.values(byName);
