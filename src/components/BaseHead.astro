@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { SEO } from 'astro-seo'
 ---
 
 <meta charset="utf-8" />
@@ -7,8 +8,23 @@ import "../styles/global.css";
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="Michael Andreuzza" />
-<meta name="your keywords" content="Add ypour keywords here" />
+<meta name="author" content="Yousef Elassal" />
+<SEO
+title="Yousef Elassal"
+description="Yousef Elassal portfolio"
+canonical="https://www.yousefelassal.me"
+openGraph={{
+  basic: {
+  url: "https://www.yousefelassal.me/",
+  type: "website",
+  title: "Yousef Elassal portfolio",
+  image: "https://utfs.io/f/04b8a070-0ca0-436c-9efc-feabb05c3603-2nqmir.PNG",
+  }
+}}
+twitter={{
+  creator: "@yousefalassal"
+}}
+/>
 <!-- Favicon guidelines generated with https://favicon.io/ -->
 <link
   rel="apple-touch-icon"
