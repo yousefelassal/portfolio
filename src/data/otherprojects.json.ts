@@ -21,12 +21,18 @@ const todoApp: Template = {
 };
 const roomfinder: Template = {
   url: "https://room-finder-beryl.vercel.app/",
-  description: " A work in progress room finder for uni",
+  description: " A work in progress room finder for uni.",
   title: "Room Finder"
 };
+const swrDemo: Template = {
+  url: "https://swr-infinite-loading.vercel.app/",
+  description: "Fullstack data fetching demo using SWR through Next.js API routes and server actions, with MongoDB and Postgres integration.",
+  title: "SWR Infinite Loading Demo"
+}
 
 export const byName = {
   recipesApp,
+  swrDemo,
   library,
   todoApp,
   roomfinder,
