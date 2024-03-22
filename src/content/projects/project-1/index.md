@@ -1,16 +1,25 @@
 ---
-title: "Project One"
-summary: "Lorem ipsum dolor sit amet"
-date: "Mar 18 2022"
+title: "Trello Clone"
+summary: "Full Stack Trello Clone with GraphQL, featuring file uploads, optimistic updates, drag and drop, and more."
+date: "Jan 14 2024"
 draft: false
 tags:
-- Astro
-- Javascript
+- GraphQL
+- Apollo
 - Typescript
 - Tailwind
-- SolidJs
-demoUrl: https://astro-sphere-demo.vercel.app
-repoUrl: https://github.com/markhorn-dev/astro-sphere
+- React
+- Node.js
+- MongoDB
+- Express
+demoUrl: https://trello-3al-daya2.vercel.app/
+repoUrl: https://github.com/yousefelassal/trello
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+<div align="center">
+
+[![README-IMG](https://github.com/yousefelassal/trello/assets/76617202/ed091da0-bd40-4911-a6b5-307af27d2136)](https://trello-3al-day2.vercel.app)
+
+</div>
+
+[Check out the Documentation](https://trello-3al-daya2.vercel.app/#/documentation)
