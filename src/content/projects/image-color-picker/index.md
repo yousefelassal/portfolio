@@ -12,7 +12,4 @@ demoUrl: https://image-color-picker-pi.vercel.app/
 repoUrl: https://github.com/yousefelassal/image-color-picker
 ---
 
-- Programmed edge functions to run on Cloudflare Workers using Hono RPC Stack.
-- Built a React TSX Frontend (Vite, React Query, Zustand, TailwindCSS).
-- Created a deployment pipeline using GitHub Actions.
-- Tested the application using Playwright.
+A simple web app built using the [EyeDropper API](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API).
