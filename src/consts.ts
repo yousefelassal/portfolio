@@ -2,7 +2,7 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "Yousef Elassal | Full Stack Developer",
+  TITLE: "Yousef",
   DESCRIPTION: "Welcome to my portfolio.",
   AUTHOR: "Yousef Elassal",
 }
@@ -64,18 +64,6 @@ export const SOCIALS: Socials = [
     ICON: "github",
     TEXT: "yousefelassal",
     HREF: "https://github.com/yousefelassal"
-  },
-  { 
-    NAME: "LinkedIn",
-    ICON: "linkedin",
-    TEXT: "yousefelassal",
-    HREF: "https://www.linkedin.com/in/yousefelassal/",
-  },
-  { 
-    NAME: "Twitter",
-    ICON: "twitter-x",
-    TEXT: "yousefalassal",
-    HREF: "https://twitter.com/yousefalassal",
-  },
+  }
 ]
 
