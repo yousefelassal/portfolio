@@ -39,14 +39,6 @@ tags:
 
 ### Images
 
-Relative image in the /public folder
-
-```markdown
-![blog placeholder](/open-graph.jpg)
-```
-
-![blog placeholder](/open-graph.jpg)
-
 Relative Image in the same folder as the markdown
 
 ```markdown
