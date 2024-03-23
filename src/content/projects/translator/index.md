@@ -155,3 +155,43 @@ jobs:
 
 ## Tested the application using Playwright.
 
+```bash
+npx playwright test
+```
+
+
+```ts
+import { test, expect } from '@playwright/test`
+
+test.beforeEach(async ({ page }) => {
+    await page.goto('...')
+})
+
+test.describe('example', () => {
+    test('display a todo', async ({ page }) => {
+        const newTodo = page.getByPlaceholder('Add a todo')
+        await newTodo.fill('a todo')
+        await newTodo.press('Enter')
+
+        await expect(page.getByTestId('todo')).toHaveText('a todo')
+    })
+})
+```
+
+<div align="center">
+
+<i>/test/main.spec.ts</i>
+
+</div>
+
+
+```tsx
+const App = () => {
+    return (
+        //...
+        <div data-testid="todo">
+            {todo}
+        </div>
+    )
+}
+```
