@@ -89,6 +89,69 @@ const post = await client.todo.$post({
 })
 ```
 
-- Built a React TSX Frontend (Vite, React Query, Zustand, TailwindCSS).
-- Created a deployment pipeline using GitHub Actions.
-- Tested the application using Playwright.
+### Cloudflare Workers
+
+[wrangler](https://developers.cloudflare.com/workers/wrangler/) for dev
+
+```json
+{
+    "scripts": {
+        "dev": "wrangler pages dev --compatibility-flags=nodejs_compat --compatibility-date=2024-03-15 -- vite",
+    }
+}
+```
+
+#### Compatibility flags
+- [nodejs_compat](https://developers.cloudflare.com/workers/configuration/compatibility-dates/#nodejs-compatibility-flag)
+
+#### Environment variables
+
+##### using `wrangler.toml`
+
+```toml
+[vars]
+
+KEY = "..."
+```
+
+##### using `.dev.vars`
+
+similar to a regular .env
+```
+KEY=...
+```
+
+## Created a deployment pipeline using GitHub Actions.
+
+### Serve and Test ([start-server-and-test](https://github.com/bahmutov/start-server-and-test))
+
+```bash
+> start-server-and-test prod http://localhost:8788 'npx playwright test'
+
+1: starting server using command "npm run prod"
+and when url "[ 'http://localhost:8788' ]" is responding with HTTP status code 200
+running tests using command "npx playwright test"
+```
+
+### env variables ([stackoverflow](https://stackoverflow.com/a/63350136))
+
+paste your entire env file in one secret named `ENV_FILE` and the just do `echo "${{ secrets.ENV_FILE }}" > .env`
+
+```yaml
+- name: Create env file
+  run: echo "${{ secrets.ENV_FILE }}" > .env
+```
+
+### Skipping workflow
+add if statement before steps to check if commit msgs for a skip flag (in this case '#skip')
+
+```yaml
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ''), '#skip') }}
+```
+
+## Tested the application using Playwright.
+
