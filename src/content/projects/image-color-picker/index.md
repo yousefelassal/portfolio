@@ -12,4 +12,4 @@ demoUrl: https://image-color-picker-pi.vercel.app/
 repoUrl: https://github.com/yousefelassal/image-color-picker
 ---
 
-A simple web app built using the [EyeDropper API](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API).
+A simple React application built with the [EyeDropper API](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API).
