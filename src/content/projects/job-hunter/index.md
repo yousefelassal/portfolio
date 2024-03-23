@@ -11,4 +11,4 @@ demoUrl: https://github.com/yousefelassal/job-hunter?tab=readme-ov-file#try-it-u
 repoUrl: https://github.com/yousefelassal/job-hunter
 ---
 
-Implemented a React Native around the [JSearch](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) API
+Implemented a React Native app around the [JSearch](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch) API
