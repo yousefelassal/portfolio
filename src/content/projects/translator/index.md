@@ -133,7 +133,7 @@ type exampleStore = {
     toggleExample: () => void
 }
 
-const useExampleStore = create<exampleStore>((set) => ({
+export const useExampleStore = create<exampleStore>((set) => ({
     allExamples: [],
     addExample: (example) => set((state) => ({ allExamples: [...state.allExamples, example] }))
     isExample: false,
@@ -146,6 +146,23 @@ const useExampleStore = create<exampleStore>((set) => ({
 <i>stores/example.ts</i>
 
 </div>
+
+
+```tsx
+import { useExampleStore } from '@/stores/example'
+
+const App = () => {
+    const { allExamples } = useExampleStore()
+    return (
+        // ...
+        {allExamples.map((example) => (
+            <div key={example.id}>
+                {example.title}
+            </div>
+        ))}
+    )
+}
+```
 
 ## Created a deployment pipeline using GitHub Actions.
 
