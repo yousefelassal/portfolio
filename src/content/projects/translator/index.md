@@ -121,6 +121,32 @@ similar to a regular .env
 KEY=...
 ```
 
+## Handled Client State with [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
+
+```ts
+import { create } from 'zustand'
+
+type exampleStore = {
+    allExamples: string[]
+    addExample: (example:string) => void
+    isExample: boolean
+    toggleExample: () => void
+}
+
+const useExampleStore = create<exampleStore>((set) => ({
+    allExamples: [],
+    addExample: (example) => set((state) => ({ allExamples: [...state.allExamples, example] }))
+    isExample: false,
+    toggleExample: () => set((state) => ({ isExample: !state.isExample }))
+}))
+```
+
+<div align="center">
+
+<i>stores/example.ts</i>
+
+</div>
+
 ## Created a deployment pipeline using GitHub Actions.
 
 ### Serve and Test ([start-server-and-test](https://github.com/bahmutov/start-server-and-test))
