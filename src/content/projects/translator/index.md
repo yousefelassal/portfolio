@@ -73,6 +73,22 @@ export default test
 
 </div>
 
+### Client
+
+```ts
+import { AppType } from './server'
+import { hc } from 'hono/client'
+
+const client = hc<AppType>('/api')
+const res = await client.todo.$get()
+const post = await client.todo.$post({
+    form: {
+        id: '12309',
+        title: 'example'
+    }
+})
+```
+
 - Built a React TSX Frontend (Vite, React Query, Zustand, TailwindCSS).
 - Created a deployment pipeline using GitHub Actions.
 - Tested the application using Playwright.
