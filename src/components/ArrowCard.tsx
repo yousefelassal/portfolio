@@ -2,7 +2,16 @@ import { formatDate } from "@lib/utils"
 import type { CollectionEntry } from "astro:content"
 
 type Props = {
-  entry: CollectionEntry<"blog"> | CollectionEntry<"projects">
+  entry: CollectionEntry<"projects"> | {
+    collection: string
+    slug: string
+    data: {
+      title: string
+      summary: string
+      date: string
+      tags: string[]
+    }
+  }
   pill?: boolean
 }
 
