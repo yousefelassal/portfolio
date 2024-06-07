@@ -12,7 +12,7 @@ import { SEARCH } from "@consts"
 const projects = (await getCollection("projects"))
   .filter(post => !post.data.draft)
 
-const data = [...projects] as CollectionEntry<"blog">[]
+const data = [...projects] as CollectionEntry<"projects">[]
 ---
 
 <PageLayout title={SEARCH.TITLE} description={SEARCH.DESCRIPTION}>
