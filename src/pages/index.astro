@@ -4,8 +4,18 @@ import PageLayout from "@layouts/PageLayout.astro"
 import ArrowCard from "@components/ArrowCard"
 import { SITE, SOCIALS } from "@consts"
 
+type Entry = {
+  data: {
+    title: string
+    date: Date
+    description: string
+    tags: string[]
+  }
+  url: string
+}
+
 const posts = (await getCollection("blog"))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .sort((a:Entry, b:Entry) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0,3)
 
 const projects = (await getCollection("projects"))
