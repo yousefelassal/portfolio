@@ -3,12 +3,12 @@ import type { CollectionEntry } from "astro:content"
 
 type Props = {
   entry: CollectionEntry<"projects"> | {
-    collection: string
-    slug: string
-    data: {
+    collection?: string
+    slug?: string
+    data?: {
       title: string
       summary: string
-      date: string
+      date: Date
       tags: string[]
     }
   }
