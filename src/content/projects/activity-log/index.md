@@ -10,8 +10,8 @@ tags:
 - Express
 - Prisma
 - Postgres
-demoUrl: https://image-color-picker-pi.vercel.app/
-repoUrl: https://github.com/yousefelassal/image-color-picker
+demoUrl: https://activity-log-opal.vercel.app
+repoUrl: https://github.com/yousefelassal/activity-log
 ---
 
 <img src="https://utfs.io/f/hqvJtwAnNHr9eOsLCEkmBMSVJd27lYkjZfDQ3IHrs50T6po4" alt="demo">
