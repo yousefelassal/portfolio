@@ -5,7 +5,7 @@ dateStart: "04/15/2024"
 dateEnd: "06/7/2024"
 ---
 
-Built a Web app with admin and guest views for a client to manage graduates from their educational program.
+Graduates Management System
 
 - Handled file uploads using Cloudflare R2 storage through Workers.
 - Handled CRUD operations to a PostgreSQL database through a Node.js REST API.
