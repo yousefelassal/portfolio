@@ -11,6 +11,7 @@ Attendance Logging System
 - Handled CRUD operations to a MySQL database.
 - Utilized WebSockets to display real-time data.
 - Handled dynamically generating unique QR codes for each student.
+- Handled logs through a HID scanner.
 - Built a React frontend.
 - Containerized the app with Docker.
 - Deployed the app to Azure Container Instances.
