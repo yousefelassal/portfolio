@@ -27,3 +27,6 @@ To handle video processing and adding watermarks, we utilized FFmpeg running ins
 
 <img src="https://h4ej7o5mx1.ufs.sh/f/hqvJtwAnNHr9uGnVcSZQnZ8RpzPi7kaJMw0jf2oHrNhVGs6b" alt="ffmpeg-container">
 
+For payment processing, we integrated a third-party payment gateway, and handled the payment flow securely within the Cloudflare Workers environment.
+
+The platform also includes features such as email notifications, request management, and video delivery. We leveraged Cloudflare's KV storage for caching, and we had an iteration where we used Durable Objects for real-time features.
