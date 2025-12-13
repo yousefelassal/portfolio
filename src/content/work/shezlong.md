@@ -1,13 +1,13 @@
 ---
 company: "Shezlong"
-role: "Frontend Developer Intern"
-dateStart: "07/30/2024"
-dateEnd: "09/30/2024"
+role: "Full-Stack Developer"
+dateStart: "10/01/2024"
+dateEnd: "PRESENT"
 ---
 
-Built a new version of an internal application from the ground up using Angular.
-- Optimized performance and user experience.
-- Implemented Optimistic UI Updates to enhance responsiveness, reducing unnecessary backend calls.
-- Handled state using NGXS and utilized search params for persistence allowing URL sharing.
-
-
+Handled the entire stack from frontend using Angular to backend using NestJS.
+- Utilized RabbitMQ for event queuing.
+- Integrated payment gateways and handled processing payments.
+- Handled social logins with Google and Apple as OAuth providers.
+- Developed an IVR experience using Twilio.
+- Implemented virus scanning for uploaded files using ClamAV.
