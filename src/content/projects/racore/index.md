@@ -21,3 +21,9 @@ The platform is built using [Cloudflare Workers](https://workers.cloudflare.com/
 We used [Hono](https://hono.dev) as the web framework for building the serverless functions, taking advantage of its lightweight nature and compatibility with Cloudflare Workers. For the frontend we used React, and TailwindCSS.
 
 We designed it in a way to allow users (clients) to easily browse through available personalities, select their desired individual, and provide details for the custom video message. On the other side, "talents" have their own dashboard to manage incoming requests, record videos, and track earnings.
+
+
+To handle video processing and adding watermarks, we utilized FFmpeg running inside Cloudflare's [Containers](https://developers.cloudflare.com/containers/).
+
+<img src="https://h4ej7o5mx1.ufs.sh/f/hqvJtwAnNHr9uGnVcSZQnZ8RpzPi7kaJMw0jf2oHrNhVGs6b" alt="ffmpeg-container">
+
