@@ -11,3 +11,4 @@ Handled the entire stack from frontend using Angular to backend using NestJS.
 - Handled social logins with Google and Apple as OAuth providers.
 - Developed an IVR experience using Twilio.
 - Implemented virus scanning for uploaded files using ClamAV.
+- Architected a provider agnostic sms service using strategy pattern.
