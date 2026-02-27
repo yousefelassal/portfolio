@@ -5,11 +5,8 @@ date: "Mar 20 2024"
 draft: false
 tags:
 - Typescript
-- Hono
-- Tailwind
 - React
-- React Query
-- Node.js
+- Hono
 demoUrl: https://traductor-mw5.pages.dev/
 repoUrl: https://github.com/yousefelassal/traductor
 ---

@@ -5,11 +5,8 @@ date: "Jun 29 2024"
 draft: false
 tags:
 - Typescript
-- Tailwind
 - React
 - Express
-- Prisma
-- Postgres
 demoUrl: https://activity-log-opal.vercel.app
 repoUrl: https://github.com/yousefelassal/activity-log
 ---

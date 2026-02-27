@@ -4,13 +4,9 @@ summary: "Full Stack Trello Clone with GraphQL, featuring file uploads, optimist
 date: "Jan 14 2024"
 draft: false
 tags:
-- GraphQL
-- Apollo
 - Typescript
-- Tailwind
+- GraphQL
 - React
-- Node.js
-- MongoDB
 - Express
 demoUrl: https://trello-3al-daya2.vercel.app/
 repoUrl: https://github.com/yousefelassal/trello
