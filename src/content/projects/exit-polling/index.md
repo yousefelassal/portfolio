@@ -13,7 +13,7 @@ I've always been fascinated by functional programming languages, and Elixir is o
 
 So, I decided to build a real-time exit polling application using Elixir, Phoenix, and Inertia.js.
 
-The app is made up of 3 different projects:
+The app is made up of 3 different mix projects:
 - **poller**: The OTP application that handles the business logic of the app, it uses GenServers to manage the state of the polls and the votes.
 - **poller dal**: A simple application that handles the database interactions using Ecto and Postgres.
 - **poller phx**: The Phoenix application that serves the frontend and handles the web requests, it uses Inertia.js to render the frontend using React.
