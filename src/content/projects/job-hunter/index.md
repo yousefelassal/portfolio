@@ -5,7 +5,7 @@ date: "Aug 29 2023"
 draft: false
 tags:
 - React Native
-- Javascript
+- JavaScript
 demoUrl: https://github.com/yousefelassal/job-hunter?tab=readme-ov-file#try-it-using-expo-go-app
 repoUrl: https://github.com/yousefelassal/job-hunter
 ---

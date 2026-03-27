@@ -4,7 +4,7 @@ summary: "Easily extract HEX code from any image."
 date: "Jul 15 2023"
 draft: false
 tags:
-- Typescript
+- TypeScript
 - React
 demoUrl: https://image-color-picker-pi.vercel.app/
 repoUrl: https://github.com/yousefelassal/image-color-picker

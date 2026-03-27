@@ -4,9 +4,9 @@ summary: "A Full Stack project developed as part of an interview process. Showca
 date: "Jun 29 2024"
 draft: false
 tags:
-- Typescript
+- TypeScript
 - React
-- Express
+- Node.js
 demoUrl: https://activity-log-opal.vercel.app
 repoUrl: https://github.com/yousefelassal/activity-log
 ---

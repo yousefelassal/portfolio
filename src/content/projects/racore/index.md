@@ -4,8 +4,8 @@ summary: "A platform for booking celebrities, influencers, and experts for custo
 date: "Sep 30 2025"
 draft: false
 tags:
+- TypeScript
 - Cloudflare Workers
-- Hono
 - React
 demoUrl: https://3ads-bgeba.pages.dev
 ---

@@ -4,7 +4,7 @@ summary: "Experimenting with Headless CMS."
 date: "Aug 7 2023"
 draft: false
 tags:
-- Typescript
+- TypeScript
 - Next.js
 demoUrl: https://recipe-app-six-rho.vercel.app/
 repoUrl: https://github.com/yousefelassal/recipe-app

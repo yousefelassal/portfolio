@@ -4,9 +4,9 @@ summary: "Utilized Microsoft Azure AI Services to detect, translate and pronounc
 date: "Mar 20 2024"
 draft: false
 tags:
-- Typescript
+- TypeScript
 - React
-- Hono
+- Cloudflare Pages
 demoUrl: https://traductor-mw5.pages.dev/
 repoUrl: https://github.com/yousefelassal/traductor
 ---
