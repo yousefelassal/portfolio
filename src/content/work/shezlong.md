@@ -1,11 +1,11 @@
 ---
 company: "Shezlong"
-role: "Full-Stack Developer"
+role: "Full-Stack Developer (Backend Focus)"
 dateStart: "10/01/2024"
 dateEnd: "PRESENT"
 ---
 
-Handled the entire stack from frontend using Angular to backend using NestJS.
+Handled the entire stack from backend using NestJS to frontend using Angular.
 - Integrated payment gateways and handled processing payments.
 - Handled signing in with Google and Apple.
 - Developed an event driven IVR solution using AWS EventBridge and Lambda Functions.
