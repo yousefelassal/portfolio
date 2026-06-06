@@ -1,7 +1,7 @@
 ---
 title: "Building Dynamic OG Images on the Edge with Cloudflare Workers"
 summary: "How we built a dynamic OpenGraph image generator on Cloudflare Workers using Satori, Resvg-WASM, and a healthy amount of trial and error."
-date: "May 25 2026"
+date: "May 10 2026"
 draft: false
 tags:
   - Cloudflare Workers
