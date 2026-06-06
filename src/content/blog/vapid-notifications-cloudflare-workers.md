@@ -6,7 +6,6 @@ draft: false
 tags:
   - Cloudflare Workers
   - PWA
-  - VAPID
   - Web Push
 ---
 
@@ -309,7 +308,7 @@ import { buildPushPayload } from "@block65/webcrypto-web-push";
 import type { PushMessage, VapidKeys } from "@block65/webcrypto-web-push";
 
 const vapid: VapidKeys = {
-  subject: env.OPERATOR_APP_URL,
+  subject: env.APP_URL,
   publicKey: env.VAPID_PUBLIC_KEY,
   privateKey: env.VAPID_PRIVATE_KEY,
 };
