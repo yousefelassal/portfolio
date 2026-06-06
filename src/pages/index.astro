@@ -4,6 +4,11 @@ import PageLayout from "@layouts/PageLayout.astro"
 import ArrowCard from "@components/ArrowCard"
 import { SITE, SOCIALS } from "@consts"
 
+const posts = (await getCollection("blog"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0,3)
+
 const projects = (await getCollection("projects"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0,3)
@@ -69,13 +74,13 @@ const projects = (await getCollection("projects"))
       <section class="animate">
         <article>
           <p>I am a <b><i>software engineer</i></b>, <b><i>ui/ux designer</i></b>, <b><i>student</i></b>, <b><i>minimalist</i></b>, <b><i>eternal optimist</i></b> and <b><i>sarcasm connoisseur</i></b>.</p>
-          <p>I love to both build and break things (I mostly <i>break things</i>). I enjoy exploring new tools and technologies, gotta stay up-to-date.</p>
-          <p>Currently, I am a full stack developer (<em>backend focused</em>) at <a href="https://www.shezlong.com" target="_blank" class="underline decoration-[.5px] decoration-black/25 dark:decoration-white/25 hover:decoration-black dark:hover:decoration-white underline-offset-2 blend">Shezlong</a>, if prod was down it was <b><i>probably my fault</i></b>.</p>
+          <p>I love to both build and break things (I mostly break things). I enjoy exploring new tools and technologies, gotta stay up-to-date.</p>
+          <p>Currently, I am a full stack developer (backend focused) at <a href="https://www.shezlong.com" target="_blank" class="underline decoration-[.5px] decoration-black/25 dark:decoration-white/25 hover:decoration-black dark:hover:decoration-white underline-offset-2 blend">Shezlong</a>, if prod was down it was probably my fault.</p>
         </article>
       </section>
 
       <!-- Blog Preview Section -->
-      <!-- <section class="animate">
+      <section class="animate">
         <div class="space-y-4">
           <div class="flex justify-between">
             <p class="font-semibold text-black dark:text-white">
@@ -95,7 +100,7 @@ const projects = (await getCollection("projects"))
             ))}
           </ul>
         </div>
-      </section> -->
+      </section>
 
       <!-- Project Preview Section -->
       <section class="animate">
@@ -127,7 +132,7 @@ const projects = (await getCollection("projects"))
             Let's Connect
           </p>
           <p>
-            Reach out to me via email.
+            Reach out to me via twitter or email.
           </p>
           <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
             {SOCIALS.map(social => (

@@ -22,7 +22,7 @@ export const BLOG: Page = {
 // Projects Page 
 export const PROJECTS: Page = {
   TITLE: "Projects",
-  DESCRIPTION: "Recent projects I have worked on.",
+  DESCRIPTION: "Recent personal projects I have worked on.",
 }
 
 // Search Page
@@ -40,6 +40,10 @@ export const LINKS: Links = [
   { 
     TEXT: "Work", 
     HREF: "/work", 
+  },
+  {
+    TEXT: "Blog",
+    HREF: "/blog",
   },
   { 
     TEXT: "Projects", 
@@ -60,6 +64,12 @@ export const SOCIALS: Socials = [
     ICON: "github",
     TEXT: "yousefelassal",
     HREF: "https://github.com/yousefelassal"
-  }
+  },
+  {
+     NAME: "Twitter",
+     ICON: "twitter-x",
+     TEXT: "yousefalassal",
+     HREF: "https://twitter.com/yousefalassal",
+   },
 ]
 
