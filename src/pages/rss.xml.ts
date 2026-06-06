@@ -16,11 +16,11 @@ type Entry = {
 }
 
 export async function GET(context: Context) {
-	// const posts = await getCollection("blog")
+	const posts = await getCollection("blog")
   const projects = await getCollection("projects")
 
   const items = [
-    // ...posts,
+    ...posts,
     ...projects
   ]
 
