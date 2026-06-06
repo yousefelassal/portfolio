@@ -10,11 +10,11 @@ tags:
 
 Metabase is great for analytics, but it has no Cloudflare D1 driver and the [feature request](https://github.com/metabase/metabase/issues/47494) for one has gone nowhere. The workaround we run: export D1 to a local SQLite file, point Metabase at it, and share it over HTTPS with a Cloudflare Tunnel when needed.
 
-It's not a perfect solution, you need to run a script periodically to sync the local SQLite file with the remote D1 database. But you never run heavy analytics against your live app database anyways, you run them against a copy. D1 makes this extra important since each database is single-threaded and a running export blocks other requests. So the local SQLite file is your analytics replica, and the only time you touch production is one periodic export.
+It's not a perfect solution, you need to run a script periodically to sync the local SQLite file with the remote D1 database. But you never run heavy analytics against your live app database anyways, you run them against a copy.
 
 ## The Sync Script
 
-`wrangler d1 export` dumps the remote DB to SQL; we replay it into a local `.sqlite` file that Metabase reads directly.
+`wrangler d1 export` dumps the remote DB to SQL then we replay it into a local `.sqlite` file that Metabase reads directly.
 
 ```bash
 #!/bin/bash
@@ -90,7 +90,7 @@ cloudflared tunnel --url http://localhost:3003
 
 It prints a `https://*.trycloudflare.com` URL that stays alive while the process runs. It's public and unauthenticated, so treat it accordingly. For a stable URL, set up a named tunnel and run it as a `cloudflared` service in the same compose file.
 
-You can also connect a route to a specific custom subdomain or path to expose the tunnel publicly instead of generating a random URL.
+You can also connect a route through the cloudflare dashboard to a specific custom subdomain or path to expose the tunnel publicly instead of generating a random URL.
 
 ## Limitations
 
