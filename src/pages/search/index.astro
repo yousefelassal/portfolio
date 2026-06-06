@@ -6,14 +6,14 @@ import BottomLayout from "@layouts/BottomLayout.astro"
 import Search from "@components/Search"
 import { SEARCH } from "@consts"
 
-// const posts = (await getCollection("blog"))
-//   .filter(post => !post.data.draft)
+const posts = (await getCollection("blog"))
+  .filter(post => !post.data.draft)
 
 const projects = (await getCollection("projects"))
   .filter(post => !post.data.draft)
 
 const data = [
-  // ...posts,
+  ...posts,
   ...projects
 ] as CollectionEntry<"projects">[]
 ---
