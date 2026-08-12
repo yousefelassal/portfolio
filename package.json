@@ -33,6 +33,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@types/estree-jsx": "^1.0.5"
+    "@types/estree-jsx": "^1.0.5",
+    "baseline-browser-mapping": "^2.11.13"
   }
 }
