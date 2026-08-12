@@ -86,13 +86,13 @@ import Container from "@components/Container.astro"
   function goBackToTop(event) {
     event.preventDefault()
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
+        top: 0
     })
   }
 
   function inintializeBackToTop() {
-    const backToTop = document.getElementById("back-to-top")
+    const backToTop = document.querySelector("#back-to-top")
     backToTop?.addEventListener("click", goBackToTop)
   }
 

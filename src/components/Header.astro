@@ -1,6 +1,7 @@
 ---
 import { SITE, LINKS } from "@consts"
 import { cn } from "@lib/utils"
+
 const { pathname } = Astro.url
 const subpath = pathname.match(/[^/]+/g)
 import Container from "@components/Container.astro"
@@ -90,14 +91,14 @@ import Container from "@components/Container.astro"
 
 <script is:inline>
   function toggleDrawer() {
-    const drawer = document.getElementById("drawer")
-    const drawerButton = document.getElementById("header-drawer-button")
+    const drawer = document.querySelector("#drawer")
+    const drawerButton = document.querySelector("#header-drawer-button")
     drawer?.classList.toggle("open")
     drawerButton?.classList.toggle("open")
   }
 
   function initializeDrawerButton() {
-    const drawerButton = document.getElementById("header-drawer-button")
+    const drawerButton = document.querySelector("#header-drawer-button")
     drawerButton?.addEventListener("click", toggleDrawer)
   }
 

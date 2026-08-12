@@ -24,10 +24,11 @@ dateEnd: "Present"
 - Developed a script for database seeding by extracting and importing data from xlsx files.
 - Containerized the app with Docker.
 
+#### Orders Management System
 
-#### Orders Management System	
-- Built a REST API using Node.js, Express.js, MongoDB. 
+- Built a REST API using Node.js, Express.js, MongoDB.
 - Adapted Next.js React Server Components.
 
 #### Marin Solutions - Freelancing Contract
+
 Converting Figma files to pixel perfect functioning websites using vanilla JS and TailwindCSS.

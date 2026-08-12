@@ -4,9 +4,9 @@ summary: "Utilized Microsoft Azure AI Services to detect, translate and pronounc
 date: "Mar 20 2024"
 draft: false
 tags:
-- TypeScript
-- React
-- Cloudflare Pages
+  - TypeScript
+  - React
+  - Cloudflare Pages
 demoUrl: https://traductor-mw5.pages.dev/
 repoUrl: https://github.com/yousefelassal/traductor
 ---
@@ -36,32 +36,32 @@ export type AppType = app
 </div>
 
 ```ts
-import { Hono } from 'hono'
-import { z } from 'zod'
-import { zValidator } from '@hono/zod-validator'
-import { db } from '../db'
+import { Hono } from "hono";
+import { z } from "zod";
+import { zValidator } from "@hono/zod-validator";
+import { db } from "../db";
 
 const schema = z.object({
   id: z.string(),
   title: z.string(),
-})
+});
 
 const test = new Hono()
-  .post('/', zValidator('form', schema), async (c) => {
-    const todo = c.req.valid('form')
-    await db.test.create({ data: todo })
+  .post("/", zValidator("form", schema), async (c) => {
+    const todo = c.req.valid("form");
+    await db.test.create({ data: todo });
     return c.json({
-        todo
-    })
+      todo,
+    });
   })
-  .get('/', async (c) => {
-    const todos = await db.test.findMany()
+  .get("/", async (c) => {
+    const todos = await db.test.findMany();
     return c.json({
-        todos
-    })
-  })
+      todos,
+    });
+  });
 
-export default test
+export default test;
 ```
 
 <div align="center">
@@ -73,17 +73,17 @@ export default test
 ### Client
 
 ```ts
-import { AppType } from './server'
-import { hc } from 'hono/client'
+import { AppType } from "./server";
+import { hc } from "hono/client";
 
-const client = hc<AppType>('/api')
-const res = await client.todo.$get()
+const client = hc<AppType>("/api");
+const res = await client.todo.$get();
 const post = await client.todo.$post({
-    form: {
-        id: '12309',
-        title: 'example'
-    }
-})
+  form: {
+    id: "12309",
+    title: "example",
+  },
+});
 ```
 
 ### Cloudflare Workers
@@ -92,13 +92,14 @@ const post = await client.todo.$post({
 
 ```json
 {
-    "scripts": {
-        "dev": "wrangler pages dev --compatibility-flags=nodejs_compat --compatibility-date=2024-03-15 -- vite",
-    }
+  "scripts": {
+    "dev": "wrangler pages dev --compatibility-flags=nodejs_compat --compatibility-date=2024-03-15 -- vite"
+  }
 }
 ```
 
 #### Compatibility flags
+
 - [nodejs_compat](https://developers.cloudflare.com/workers/configuration/compatibility-dates/#nodejs-compatibility-flag)
 
 #### Environment variables
@@ -114,6 +115,7 @@ KEY = "..."
 ##### using `.dev.vars`
 
 similar to a regular .env
+
 ```
 KEY=...
 ```
@@ -143,7 +145,6 @@ export const useExampleStore = create<exampleStore>((set) => ({
 <i>stores/example.ts</i>
 
 </div>
-
 
 ```tsx
 import { useExampleStore } from '@/stores/example'
@@ -183,6 +184,7 @@ paste your entire env file in one secret named `ENV_FILE` and the just do `echo 
 ```
 
 ### Skipping workflow
+
 add if statement before steps to check if commit msgs for a skip flag (in this case '#skip')
 
 ```yaml
@@ -198,7 +200,6 @@ jobs:
 ```bash
 npx playwright test
 ```
-
 
 ```ts
 import { test, expect } from '@playwright/test`
@@ -224,14 +225,11 @@ test.describe('example', () => {
 
 </div>
 
-
 ```tsx
 const App = () => {
-    return (
-        //...
-        <div data-testid="todo">
-            {todo}
-        </div>
-    )
-}
+  return (
+    //...
+    <div data-testid="todo">{todo}</div>
+  );
+};
 ```

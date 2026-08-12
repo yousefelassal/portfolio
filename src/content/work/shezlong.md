@@ -6,6 +6,7 @@ dateEnd: "PRESENT"
 ---
 
 Handled the entire stack from backend using NestJS to frontend using Angular.
+
 - Integrated payment gateways and handled processing payments.
 - Handled signing in with Google and Apple.
 - Developed an event driven IVR solution using AWS EventBridge and Lambda Functions.

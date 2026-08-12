@@ -93,7 +93,7 @@ self.addEventListener("push", (event: PushEvent) => {
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",
       data,
-    }),
+    })
   );
 });
 
@@ -109,7 +109,7 @@ self.addEventListener("notificationclick", (event) => {
         const existing = clients.find((c) => c.url === url);
         if (existing) return existing.focus();
         return self.clients.openWindow(url);
-      }),
+      })
   );
 });
 ```
@@ -350,20 +350,20 @@ export const preparePushNotification = (
 
 ```ts
 export const triggerPushNotificationToSubscribers = async (
-  message: PushNotificationMessage,
+  message: PushNotificationMessage
 ): Promise<void> => {
   // fetch all subscribers from the database
   const subscribers = await getSubscribers();
 
   return triggerPushNotification(
     subscribers.map((u) => u.id),
-    message,
+    message
   );
 };
 
 export const triggerPushNotification = async (
   userIds: number[],
-  message: PushNotificationMessage,
+  message: PushNotificationMessage
 ): Promise<void> => {
   // fetch all subscriptions for the given userIds
   const subscriptions = await getSubscriptions(userIds);
@@ -376,13 +376,13 @@ export const triggerPushNotification = async (
     const payload = await buildPushPayload(
       message,
       sub.vapidSubscription,
-      vapid,
+      vapid
     );
 
     try {
       const res = await fetch(
         sub.vapidSubscription.endpoint,
-        payload as RequestInit,
+        payload as RequestInit
       );
       ctxLogger.debug("Push sent", { status: res.status });
     } catch (error) {
@@ -417,8 +417,8 @@ c.executionCtx.waitUntil(
     preparePushNotification("example", {
       subject: someLogicResult.id,
       placeholder: someLogicResult.title,
-    }),
-  ),
+    })
+  )
 );
 
 // response goes back to the client immediately

@@ -10,7 +10,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Atkinson";
     src: url("/fonts/atkinson-bold.woff") format("woff");
@@ -25,7 +25,6 @@ html {
   color-scheme: light;
   background-color: white;
   font-family: "Atkinson", sans-serif;
-  
 }
 
 html.dark {
@@ -45,7 +44,7 @@ body {
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-1 flex-col bg-white dark:bg-black;
 }
 
 header {
@@ -54,17 +53,17 @@ header {
 }
 
 header:not(.scrolled) {
-  @apply bg-transparent border-transparent;
+  @apply border-transparent bg-transparent;
 }
 
 header.scrolled {
   @apply bg-white/75 dark:bg-black/50;
   @apply border-black/10 dark:border-white/25;
-  @apply backdrop-blur-sm saturate-200;
+  @apply saturate-200 backdrop-blur-sm;
 }
 
 article {
-  @apply prose dark:prose-invert max-w-full pb-12;
+  @apply prose max-w-full pb-12 dark:prose-invert;
 }
 
 .page-heading {
@@ -89,7 +88,9 @@ article {
 .animate {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
 }
 
 .animate.show {

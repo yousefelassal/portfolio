@@ -152,7 +152,7 @@ The workaround is kind of cursed but it works: send an ancient browser's User-Ag
 ```ts
 async function loadFont(
   family: string,
-  weight: number,
+  weight: number
 ): Promise<ArrayBuffer | null> {
   try {
     const css = await fetch(
@@ -164,11 +164,11 @@ async function loadFont(
           "User-Agent":
             "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
         },
-      },
+      }
     ).then((r) => r.text());
 
     const match = css.match(
-      /src: url\((.+?)\) format\('(?:truetype|opentype|woff)'\)/,
+      /src: url\((.+?)\) format\('(?:truetype|opentype|woff)'\)/
     );
     if (!match?.[1]) return null;
 
@@ -251,9 +251,7 @@ function buildJsx(opts: {
         position: "relative",
       },
       // children can be any valid JSX element
-      children: [
-        /*  */
-      ],
+      children: [/*  */],
     },
   };
 }

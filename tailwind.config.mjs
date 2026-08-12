@@ -1,13 +1,14 @@
-import defaultTheme from "tailwindcss/defaultTheme"
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: ["class"],
+  plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
       fontFamily: {
-        "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],
+        sans: ["Atkinson", ...defaultTheme.fontFamily.sans],
       },
       typography: {
         DEFAULT: {
@@ -15,8 +16,7 @@ export default {
             maxWidth: "full",
           },
         },
-      }
+      },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
-}
+};

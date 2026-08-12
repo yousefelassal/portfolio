@@ -1,15 +1,16 @@
 {
   "name": "astro-sphere",
-  "type": "module",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
@@ -19,12 +20,8 @@
     "@astrojs/solid-js": "^7.0.2",
     "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.10",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
     "astro": "^7.2.1",
     "clsx": "^2.1.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-astro": "^0.31.4",
     "fuse.js": "^7.0.0",
     "sharp": "^0.33.2",
     "solid-js": "^1.8.15",
@@ -34,6 +31,10 @@
   },
   "devDependencies": {
     "@types/estree-jsx": "^1.0.5",
-    "baseline-browser-mapping": "^2.11.13"
+    "baseline-browser-mapping": "^2.11.13",
+    "husky": "^9.1.7",
+    "oxfmt": "^0.63.0",
+    "oxlint": "^1.78.0",
+    "ultracite": "7.10.3"
   }
 }

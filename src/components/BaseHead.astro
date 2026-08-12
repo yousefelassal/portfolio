@@ -58,6 +58,7 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
 
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client"
+
   document.addEventListener("astro:before-swap", (e) =>
     [
       ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll(

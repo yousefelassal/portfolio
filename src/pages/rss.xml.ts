@@ -1,42 +1,42 @@
-import rss from "@astrojs/rss"
-import { getCollection } from "astro:content"
-import { SITE } from "@consts"
+import rss from "@astrojs/rss";
+import { SITE } from "@consts";
+import { getCollection } from "astro:content";
 
-type Context = {
-  site: string
+interface Context {
+  site: string;
 }
 
-type Entry = {
+interface Entry {
   data: {
-    title: string
-    summary: string
-    date: Date
-  }
-  slug: string
+    title: string;
+    summary: string;
+    date: Date;
+  };
+  slug: string;
 }
 
 export async function GET(context: Context) {
-	const posts = await getCollection("blog")
-  const projects = await getCollection("projects")
+  const posts = await getCollection("blog");
+  const projects = await getCollection("projects");
 
-  const items = [
-    ...posts,
-    ...projects
-  ]
+  const items = [...posts, ...projects];
 
-  items.sort((a:Entry, b:Entry) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  items.sort(
+    (a: Entry, b: Entry) =>
+      new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
 
   return rss({
-    title: SITE.TITLE,
     description: SITE.DESCRIPTION,
-    site: context.site,
-    items: items.map((item:Entry) => ({
-      title: item.data.title,
+    items: items.map((item: Entry) => ({
       description: item.data.summary,
-      pubDate: item.data.date,
       link: item.id.startsWith("blog")
         ? `/blog/${item.id}/`
         : `/projects/${item.id}/`,
+      pubDate: item.data.date,
+      title: item.data.title,
     })),
-  })
+    site: context.site,
+    title: SITE.TITLE,
+  });
 }

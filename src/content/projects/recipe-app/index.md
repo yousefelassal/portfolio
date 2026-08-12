@@ -4,8 +4,8 @@ summary: "Experimenting with Headless CMS."
 date: "Aug 7 2023"
 draft: false
 tags:
-- TypeScript
-- Next.js
+  - TypeScript
+  - Next.js
 demoUrl: https://recipe-app-six-rho.vercel.app/
 repoUrl: https://github.com/yousefelassal/recipe-app
 ---
@@ -19,6 +19,7 @@ repoUrl: https://github.com/yousefelassal/recipe-app
 </div>
 
 ## Blog Schema
+
 The schema used to display the blog page shown in the studio
 
 ```ts

@@ -1,45 +1,47 @@
-import { defineCollection } from "astro:content"
-import { z } from "astro/zod"
-import { glob } from "astro/loaders"
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
+import { defineCollection } from "astro:content";
 
 const work = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/work" }),
+  loader: glob({ base: "./src/content/work", pattern: "**/[^_]*.{md,mdx}" }),
   schema: z.object({
     company: z.string(),
-    role: z.string(),
-    dateStart: z.coerce.date(),
     dateEnd: z.union([z.coerce.date(), z.string()]) || z.string(),
+    dateStart: z.coerce.date(),
+    role: z.string(),
   }),
-})
+});
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
+  loader: glob({ base: "./src/content/blog", pattern: "**/[^_]*.{md,mdx}" }),
   schema: z.object({
-    title: z.string(),
-    summary: z.string(),
     date: z.coerce.date(),
-    tags: z.array(z.string()),
     draft: z.boolean().optional(),
+    summary: z.string(),
+    tags: z.array(z.string()),
+    title: z.string(),
   }),
-})
+});
 
 const projects = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects" }),
-  schema: z.object({
-    title: z.string(),
-    summary: z.string(),
-    date: z.coerce.date(),
-    tags: z.array(z.string()),
-    draft: z.boolean().optional(),
-    demoUrl: z.string().optional(),
-    repoUrl: z.string().optional(),
-    appUrl: z.string().optional(),
-    
+  loader: glob({
+    base: "./src/content/projects",
+    pattern: "**/[^_]*.{md,mdx}",
   }),
-})
+  schema: z.object({
+    appUrl: z.string().optional(),
+    date: z.coerce.date(),
+    demoUrl: z.string().optional(),
+    draft: z.boolean().optional(),
+    repoUrl: z.string().optional(),
+    summary: z.string(),
+    tags: z.array(z.string()),
+    title: z.string(),
+  }),
+});
 
 export const collections = {
-  work,
   blog,
   projects,
-}
+  work,
+};
