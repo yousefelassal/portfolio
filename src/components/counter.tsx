@@ -1,6 +1,6 @@
 import { createSignal } from "solid-js";
 
-function CounterButton() {
+const CounterButton = () => {
   const [count, setCount] = createSignal(0);
 
   const increment = () => setCount(count() + 1);
@@ -18,6 +18,6 @@ function CounterButton() {
       </div>
     </div>
   );
-}
+};
 
 export default CounterButton;

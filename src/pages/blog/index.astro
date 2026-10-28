@@ -1,16 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import TopLayout from "@layouts/TopLayout.astro";
-import BottomLayout from "@layouts/BottomLayout.astro";
-import SearchCollection from "@components/SearchCollection";
+import PageLayout from "@layouts/page-layout.astro";
+import TopLayout from "@layouts/top-layout.astro";
+import BottomLayout from "@layouts/bottom-layout.astro";
+import SearchCollection from "@components/search-collection";
 import { BLOG } from "@consts";
 
-const posts = (await getCollection("blog"))
+const blogEntries = await getCollection("blog");
+const posts = blogEntries
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort(
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))].toSorted(
   (a, b) => a.localeCompare(b),
 );
 

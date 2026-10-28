@@ -3,16 +3,16 @@ import type { CollectionEntry } from "astro:content"
 import { formatDate, readingTime } from "@lib/utils"
 
 interface Props {
-  entry: CollectionEntry<"projects">
+  entry: CollectionEntry<"blog"> | CollectionEntry<"projects">
 }
 
 const { entry } = Astro.props
-const { collection, data, body } = entry
-const { title, summary, date } = data
+const { collection, body } = entry
+const { title, summary, date } = entry.data
 
-const demoUrl = collection === "projects" ? data.demoUrl : null
-const repoUrl = collection === "projects" ? data.repoUrl : null
-const appUrl = collection === "projects" ? data.appUrl : null
+const demoUrl = entry.collection === "projects" ? entry.data.demoUrl : null
+const repoUrl = entry.collection === "projects" ? entry.data.repoUrl : null
+const appUrl = entry.collection === "projects" ? entry.data.appUrl : null
 ---
 
 <div>
@@ -36,7 +36,7 @@ const appUrl = collection === "projects" ? data.appUrl : null
       <svg class="size-5 stroke-current">
         <use href="/ui.svg#book-open"/>
       </svg>
-      {readingTime(body)}
+      {readingTime(body ?? "")}
     </div>
   </div>
   <h1 class="text-3xl font-semibold text-black dark:text-white mt-2">
