@@ -8,7 +8,7 @@ interface Props {
 
 const ArrowCard = ({ entry, pill }: Props) => (
   <a
-    href={`/${entry.collection}/${entry.id}`}
+    href={`/${entry.collection}/${entry.id}/`}
     class="group flex items-center gap-3 rounded-lg border border-black/15 p-4 transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 hover:dark:bg-white/10"
   >
     <div class="blend w-full group-hover:text-black group-hover:dark:text-white">
