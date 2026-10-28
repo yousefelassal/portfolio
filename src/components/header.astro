@@ -5,6 +5,7 @@ import Container from "@components/container.astro"
 
 const { pathname } = Astro.url
 const subpath = pathname.match(/[^/]+/gu)
+const activePath = pathname === "/" ? "/" : `/${subpath?.[0] ?? ""}/`
 ---
 
 <header id="header" class="fixed top-0 w-full h-16 z-50 ">
@@ -28,7 +29,7 @@ const subpath = pathname.match(/[^/]+/gu)
       <nav class="hidden md:flex items-center justify-center text-sm gap-1">
         {
           LINKS.map((LINK) => (
-            <a href={LINK.HREF} class={cn("h-8 rounded-full px-3 text-current", "flex items-center justify-center", "transition-colors duration-300 ease-in-out", pathname === LINK.HREF || "/" + subpath?.[0] === LINK.HREF ? "bg-black dark:bg-white text-white dark:text-black" : "hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white")}>
+            <a href={LINK.HREF} class={cn("h-8 rounded-full px-3 text-current", "flex items-center justify-center", "transition-colors duration-300 ease-in-out", activePath === LINK.HREF ? "bg-black dark:bg-white text-white dark:text-black" : "hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white")}>
               {LINK.TEXT}
             </a>
           ))
@@ -37,13 +38,13 @@ const subpath = pathname.match(/[^/]+/gu)
     </div>
 
     <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1">
-      <a href="/search" aria-label={`Search blog posts and projects on ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out", pathname === "/search" || "/" + subpath?.[0] === "/search" ? "pointer-events-none bg-black dark:bg-white text-white dark:text-black" : "")}>
+      <a href="/search/" aria-label={`Search blog posts and projects on ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out", activePath === "/search/" ? "pointer-events-none bg-black dark:bg-white text-white dark:text-black" : "")}>
         <svg class="size-full">
           <use href="/ui.svg#search"></use>
         </svg>
       </a>
 
-      <a href="/rss.xml" target="_blank" aria-label={`Rss feed for ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out")}>
+      <a href="/rss.xml" target="_blank" rel="noopener" aria-label={`Rss feed for ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out")}>
         <svg class="size-full">
           <use href="/ui.svg#rss"></use>
         </svg>

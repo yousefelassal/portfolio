@@ -3,31 +3,35 @@ import type { Site, Page, Links, Socials } from "@types";
 // Global
 export const SITE: Site = {
   AUTHOR: "Yousef Elassal",
-  DESCRIPTION: "Welcome to my portfolio.",
-  TITLE: "Yousef",
+  DESCRIPTION:
+    "Full stack engineer and UI/UX designer building web products with TypeScript, Astro, and Cloudflare, plus writing, projects, and work history.",
+  TITLE: "Yousef Elassal",
 };
 
 // Work Page
 export const WORK: Page = {
-  DESCRIPTION: "Places I have worked.",
+  DESCRIPTION:
+    "Roles, companies, and engineering work across full stack development and product design.",
   TITLE: "Work",
 };
 
 // Blog Page
 export const BLOG: Page = {
-  DESCRIPTION: "Writing on topics I am passionate about.",
+  DESCRIPTION:
+    "Long-form writing on TypeScript, Astro, Cloudflare Workers, UI/UX, and building web products.",
   TITLE: "Blog",
 };
 
 // Projects Page
 export const PROJECTS: Page = {
-  DESCRIPTION: "Recent personal projects I have worked on.",
+  DESCRIPTION:
+    "Personal projects built with TypeScript, Astro, React, and Cloudflare.",
   TITLE: "Projects",
 };
 
 // Search Page
 export const SEARCH: Page = {
-  DESCRIPTION: "Search all posts and projects by keyword.",
+  DESCRIPTION: "Search writing and projects by keyword and tag.",
   TITLE: "Search",
 };
 
@@ -38,15 +42,15 @@ export const LINKS: Links = [
     TEXT: "Home",
   },
   {
-    HREF: "/work",
+    HREF: "/work/",
     TEXT: "Work",
   },
   {
-    HREF: "/blog",
+    HREF: "/blog/",
     TEXT: "Blog",
   },
   {
-    HREF: "/projects",
+    HREF: "/projects/",
     TEXT: "Projects",
   },
 ];

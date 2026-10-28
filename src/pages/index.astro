@@ -3,6 +3,12 @@ import { getCollection } from "astro:content"
 import PageLayout from "@layouts/page-layout.astro"
 import ArrowCard from "@components/arrow-card"
 import { SITE, SOCIALS } from "@consts"
+import { personSchema, websiteSchema } from "@lib/seo"
+
+const { site } = Astro
+if (!site) {
+  throw new Error("`site` must be set in astro.config.mjs to build the home page")
+}
 
 const blogEntries = await getCollection("blog")
 const posts = blogEntries
@@ -12,12 +18,17 @@ const posts = blogEntries
 
 const projectEntries = await getCollection("projects")
 const projects = projectEntries
+  .filter(project => !project.data.draft)
   .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0,3)
 
 ---
 
-<PageLayout title="Home" description={SITE.DESCRIPTION}>
+<PageLayout
+  title="Full Stack Engineer"
+  description={SITE.DESCRIPTION}
+  schema={[personSchema(site), websiteSchema(site)]}
+>
 
   <!-- Light Mode: Particles -->
   <div class='absolute inset-0 block dark:hidden'>
@@ -47,20 +58,22 @@ const projects = projectEntries
     <div class="animate absolute h-full w-full flex items-center justify-center">
       <div class='relative w-full h-full flex items-center justify-center'>
         <div class='p-5 text-center'>
-          <p class='animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75'>
-            Hello, I am Yousef
-          </p>
-          <p class='animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white'>
-            Full Stack Engineer
-          </p>
+          <h1 class='animated'>
+            <span class='block text-lg md:text-xl lg:text-2xl font-semibold opacity-75'>
+              Hello, I am Yousef
+            </span>
+            <span class='block text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white'>
+              Full Stack Engineer
+            </span>
+          </h1>
           <p class='animated text-sm md:text-base lg:text-lg opacity-75'>
             Currently designing products for humans.
           </p>
           <div id="ctaButtons" class='animated flex flex-wrap gap-4 justify-center mt-5'>
-            <a href='/work' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend'>
+            <a href='/work/' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend'>
               Work experience
             </a>
-            <a href='/projects' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
+            <a href='/projects/' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
               Personal projects
             </a>
           </div>
@@ -77,7 +90,7 @@ const projects = projectEntries
         <article>
           <p>I am a <b><i>software engineer</i></b>, <b><i>ui/ux designer</i></b>, <b><i>student</i></b>, <b><i>minimalist</i></b>, <b><i>eternal optimist</i></b> and <b><i>sarcasm connoisseur</i></b>.</p>
           <p>I love to both build and break things (I mostly break things). I enjoy exploring new tools and technologies, gotta stay up-to-date.</p>
-          <p>Currently, I am a full stack developer (backend focused) at <a href="https://www.shezlong.com" target="_blank" class="underline decoration-[.5px] decoration-black/25 dark:decoration-white/25 hover:decoration-black dark:hover:decoration-white underline-offset-2 blend">Shezlong</a>, if prod was down it was probably my fault.</p>
+          <p>Currently, I am a full stack developer (backend focused) at <a href="https://www.shezlong.com" target="_blank" rel="noopener" class="underline decoration-[.5px] decoration-black/25 dark:decoration-white/25 hover:decoration-black dark:hover:decoration-white underline-offset-2 blend">Shezlong</a>, if prod was down it was probably my fault.</p>
         </article>
       </section>
 
@@ -88,7 +101,7 @@ const projects = projectEntries
             <p class="font-semibold text-black dark:text-white">
               Recent posts
             </p>
-            <a href="/blog" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+            <a href="/blog/" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
               <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
                 All posts
               </span>
@@ -111,7 +124,7 @@ const projects = projectEntries
             <p class="font-semibold text-black dark:text-white">
               Recent projects
             </p>
-            <a href="/projects" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+            <a href="/projects/" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
               <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
                 All projects
               </span>
@@ -144,7 +157,7 @@ const projects = projectEntries
                 </span>
               </div>
               <div class="col-span-3 truncate">
-                <a href={social.HREF} target="_blank" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                <a href={social.HREF} target="_blank" rel="noopener" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
                   <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
                     {social.TEXT}
                   </span>
