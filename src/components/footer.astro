@@ -1,6 +1,6 @@
 ---
 import { SITE, SOCIALS } from "@consts"
-import Container from "@components/Container.astro"
+import Container from "@components/container.astro"
 ---
 
 <footer class="relative bg-white dark:bg-black">
@@ -83,19 +83,19 @@ import Container from "@components/Container.astro"
 </footer>
 
 <script is:inline>
-  function goBackToTop(event) {
+  const goBackToTop = (event) => {
     event.preventDefault()
     window.scrollTo({
-        behavior: "smooth",
-        top: 0
+      behavior: "smooth",
+      top: 0,
     })
   }
 
-  function inintializeBackToTop() {
+  const initializeBackToTop = () => {
     const backToTop = document.querySelector("#back-to-top")
     backToTop?.addEventListener("click", goBackToTop)
   }
 
-  document.addEventListener("astro:after-swap", inintializeBackToTop)
-  inintializeBackToTop()
+  document.addEventListener("astro:after-swap", initializeBackToTop)
+  initializeBackToTop()
 </script>

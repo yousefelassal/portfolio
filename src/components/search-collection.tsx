@@ -1,27 +1,25 @@
-import ArrowCard from "@components/ArrowCard";
-import SearchBar from "@components/SearchBar";
+import ArrowCard from "@components/arrow-card";
+import SearchBar from "@components/search-bar";
 import { cn } from "@lib/utils";
 import type { CollectionEntry } from "astro:content";
 import Fuse from "fuse.js";
 import { createEffect, createSignal, For, onMount } from "solid-js";
 
+type Entry = CollectionEntry<"blog"> | CollectionEntry<"projects">;
+
 interface Props {
   entry_name: string;
   tags: string[];
-  data: CollectionEntry<"blog">[] | CollectionEntry<"projects">[];
+  data: Entry[];
 }
 
-export default function SearchCollection({ entry_name, data, tags }: Props) {
-  const coerced = data.map((entry) => entry as CollectionEntry<"blog">);
-
+const SearchCollection = ({ entry_name, data, tags }: Props) => {
   const [query, setQuery] = createSignal("");
   const [filter, setFilter] = createSignal(new Set<string>());
-  const [collection, setCollection] = createSignal<CollectionEntry<"blog">[]>(
-    []
-  );
+  const [collection, setCollection] = createSignal<Entry[]>([]);
   const [descending, setDescending] = createSignal(false);
 
-  const fuse = new Fuse(coerced, {
+  const fuse = new Fuse(data, {
     includeMatches: true,
     keys: ["slug", "data.title", "data.summary", "data.tags"],
     minMatchCharLength: 2,
@@ -31,7 +29,7 @@ export default function SearchCollection({ entry_name, data, tags }: Props) {
   createEffect(() => {
     const filtered = (
       query().length < 2
-        ? coerced
+        ? data
         : fuse.search(query()).map((result) => result.item)
     ).filter((entry) =>
       [...filter()].every((value) =>
@@ -43,22 +41,22 @@ export default function SearchCollection({ entry_name, data, tags }: Props) {
     setCollection(descending() ? filtered.toReversed() : filtered);
   });
 
-  function toggleDescending() {
+  const toggleDescending = () => {
     setDescending(!descending());
-  }
+  };
 
-  function toggleTag(tag: string) {
+  const toggleTag = (tag: string) => {
     setFilter(
       (prev) =>
         new Set(
           prev.has(tag) ? [...prev].filter((t) => t !== tag) : [...prev, tag]
         )
     );
-  }
+  };
 
-  function clearFilters() {
+  const clearFilters = () => {
     setFilter(new Set<string>());
-  }
+  };
 
   const onSearchInput = (e: Event) => {
     const target = e.target as HTMLInputElement;
@@ -66,7 +64,9 @@ export default function SearchCollection({ entry_name, data, tags }: Props) {
   };
 
   onMount(() => {
-    const wrapper = document.querySelector("#search-collection-wrapper");
+    const wrapper = document.querySelector<HTMLElement>(
+      "#search-collection-wrapper"
+    );
     if (wrapper) {
       wrapper.style.minHeight = "unset";
     }
@@ -178,4 +178,6 @@ export default function SearchCollection({ entry_name, data, tags }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export default SearchCollection;

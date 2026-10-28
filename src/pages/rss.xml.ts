@@ -3,7 +3,7 @@ import { SITE } from "@consts";
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
-export async function GET(context: APIContext) {
+export const GET = async (context: APIContext) => {
   const { site } = context;
   if (!site) {
     throw new Error("`site` must be set in astro.config.mjs to build the feed");
@@ -34,4 +34,4 @@ export async function GET(context: APIContext) {
     site,
     title: SITE.TITLE,
   });
-}
+};
