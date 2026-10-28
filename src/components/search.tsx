@@ -1,4 +1,4 @@
-import ArrowCard from "@components/ArrowCard";
+import ArrowCard from "@components/arrow-card";
 import type { CollectionEntry } from "astro:content";
 import Fuse from "fuse.js";
 import { createEffect, createSignal } from "solid-js";
@@ -7,7 +7,7 @@ interface Props {
   data: CollectionEntry<"projects">[];
 }
 
-export default function Search({ data }: Props) {
+const Search = ({ data }: Props) => {
   const [query, setQuery] = createSignal("");
   const [results, setResults] = createSignal<CollectionEntry<"projects">[]>([]);
 
@@ -64,4 +64,6 @@ export default function Search({ data }: Props) {
       )}
     </div>
   );
-}
+};
+
+export default Search;

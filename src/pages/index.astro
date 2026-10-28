@@ -1,16 +1,18 @@
 ---
 import { getCollection } from "astro:content"
-import PageLayout from "@layouts/PageLayout.astro"
-import ArrowCard from "@components/ArrowCard"
+import PageLayout from "@layouts/page-layout.astro"
+import ArrowCard from "@components/arrow-card"
 import { SITE, SOCIALS } from "@consts"
 
-const posts = (await getCollection("blog"))
+const blogEntries = await getCollection("blog")
+const posts = blogEntries
   .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0,3)
 
-const projects = (await getCollection("projects"))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const projectEntries = await getCollection("projects")
+const projects = projectEntries
+  .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0,3)
 
 ---

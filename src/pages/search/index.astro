@@ -1,16 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import PageLayout from "@layouts/PageLayout.astro"
-import TopLayout from "@layouts/TopLayout.astro"
-import BottomLayout from "@layouts/BottomLayout.astro"
-import Search from "@components/Search"
+import PageLayout from "@layouts/page-layout.astro"
+import TopLayout from "@layouts/top-layout.astro"
+import BottomLayout from "@layouts/bottom-layout.astro"
+import Search from "@components/search"
 import { SEARCH } from "@consts"
 
-const posts = (await getCollection("blog"))
+const blogEntries = await getCollection("blog")
+const posts = blogEntries
   .filter(post => !post.data.draft)
 
-const projects = (await getCollection("projects"))
+const projectEntries = await getCollection("projects")
+const projects = projectEntries
   .filter(post => !post.data.draft)
 
 const data = [

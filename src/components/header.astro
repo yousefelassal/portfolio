@@ -1,10 +1,10 @@
 ---
 import { SITE, LINKS } from "@consts"
 import { cn } from "@lib/utils"
+import Container from "@components/container.astro"
 
 const { pathname } = Astro.url
-const subpath = pathname.match(/[^/]+/g)
-import Container from "@components/Container.astro"
+const subpath = pathname.match(/[^/]+/gu)
 ---
 
 <header id="header" class="fixed top-0 w-full h-16 z-50 ">
@@ -90,14 +90,14 @@ import Container from "@components/Container.astro"
 </style>
 
 <script is:inline>
-  function toggleDrawer() {
+  const toggleDrawer = () => {
     const drawer = document.querySelector("#drawer")
     const drawerButton = document.querySelector("#header-drawer-button")
     drawer?.classList.toggle("open")
     drawerButton?.classList.toggle("open")
   }
 
-  function initializeDrawerButton() {
+  const initializeDrawerButton = () => {
     const drawerButton = document.querySelector("#header-drawer-button")
     drawerButton?.addEventListener("click", toggleDrawer)
   }

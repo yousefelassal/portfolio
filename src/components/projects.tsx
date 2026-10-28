@@ -1,4 +1,4 @@
-import ArrowCard from "@components/ArrowCard";
+import ArrowCard from "@components/arrow-card";
 import { cn } from "@lib/utils";
 import type { CollectionEntry } from "astro:content";
 import { createEffect, createSignal, For } from "solid-js";
@@ -8,7 +8,7 @@ interface Props {
   data: CollectionEntry<"projects">[];
 }
 
-export default function Projects({ data, tags }: Props) {
+const Projects = ({ data, tags }: Props) => {
   const [filter, setFilter] = createSignal(new Set<string>());
   const [projects, setProjects] = createSignal<CollectionEntry<"projects">[]>(
     []
@@ -26,14 +26,14 @@ export default function Projects({ data, tags }: Props) {
     );
   });
 
-  function toggleTag(tag: string) {
+  const toggleTag = (tag: string) => {
     setFilter(
       (prev) =>
         new Set(
           prev.has(tag) ? [...prev].filter((t) => t !== tag) : [...prev, tag]
         )
     );
-  }
+  };
 
   return (
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -98,4 +98,6 @@ export default function Projects({ data, tags }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export default Projects;
