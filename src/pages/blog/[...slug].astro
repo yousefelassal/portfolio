@@ -1,31 +1,53 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-import PageLayout from "@layouts/page-layout.astro"
-import TopLayout from "@layouts/top-layout.astro"
-import BottomLayout from "@layouts/bottom-layout.astro"
-import ArticleTopLayout from "@layouts/article-top-layout.astro"
-import ArticleBottomLayout from "@layouts/article-bottom-layout.astro"
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import PageLayout from "@layouts/page-layout.astro";
+import TopLayout from "@layouts/top-layout.astro";
+import BottomLayout from "@layouts/bottom-layout.astro";
+import ArticleTopLayout from "@layouts/article-top-layout.astro";
+import ArticleBottomLayout from "@layouts/article-bottom-layout.astro";
+import { articleSchema, breadcrumbSchema } from "@lib/seo";
 
 // Create the static blog pages
 export const getStaticPaths = async () => {
-	const posts = await getCollection("blog")
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}))
-}
+  const posts = await getCollection("blog");
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { slug: post.id },
+      props: post,
+    }));
+};
 
 // Get the requested post
-type Props = CollectionEntry<"blog">
-const post = Astro.props
-const { title, summary } = post.data
+type Props = CollectionEntry<"blog">;
+const post = Astro.props;
+const { title, summary, tags } = post.data;
+
+const { site } = Astro;
+if (!site) {
+  throw new Error("`site` must be set in astro.config.mjs to build the blog");
+}
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Blog", path: "/blog/" },
+  { name: title, path: `/blog/${post.id}/` },
+];
 ---
 
-<PageLayout title={title} description={summary}>
+<PageLayout
+  title={title}
+  description={summary}
+  type="article"
+  publishedTime={post.data.date}
+  modifiedTime={post.data.date}
+  tags={tags}
+  schema={[articleSchema(post, site), breadcrumbSchema(breadcrumbs, site)]}
+>
   <TopLayout>
     <div class="animate">
-      <ArticleTopLayout entry={post}/>
+      <ArticleTopLayout entry={post} />
     </div>
   </TopLayout>
   <BottomLayout>

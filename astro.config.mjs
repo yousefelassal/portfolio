@@ -8,7 +8,9 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes("/search"),
+    }),
     solidJs(),
     tailwind({ applyBaseStyles: false }),
   ],
