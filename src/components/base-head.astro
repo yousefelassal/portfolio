@@ -44,7 +44,6 @@ const schemas = normalizeSchema(schema)
 <meta name="author" content={SITE.AUTHOR} />
 <meta name="robots" content={robotsContent} />
 
-<!-- Theme Color -->
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 
@@ -58,7 +57,7 @@ const schemas = normalizeSchema(schema)
 <meta property="og:image" content={imageURL} />
 <meta property="og:image:width" content={String(OG_IMAGE.width)} />
 <meta property="og:image:height" content={String(OG_IMAGE.height)} />
-<meta property="og:image:alt" content={title} />
+<meta property="og:image:alt" content={`${SITE.TITLE} portfolio preview`} />
 
 {type === "article" && publishedTime && (
   <meta property="article:published_time" content={publishedTime.toISOString()} />
@@ -79,6 +78,7 @@ const schemas = normalizeSchema(schema)
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content={`${SITE.TITLE} portfolio preview`} />
 <meta name="twitter:site" content="@yousefalassal" />
 <meta name="twitter:creator" content="@yousefalassal" />
 
@@ -88,7 +88,6 @@ const schemas = normalizeSchema(schema)
 <!-- RSS Feed -->
 <link rel="alternate" type="application/rss+xml" title={SITE.TITLE} href={`${Astro.site}rss.xml`}/>
 
-<!-- Structured Data -->
 {schemas.map((schemaEntry) => (
   <script type="application/ld+json" set:html={toJsonLd(schemaEntry)} />
 ))}

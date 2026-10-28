@@ -77,13 +77,18 @@ export const articleSchema = (
   const url = absoluteUrl(`/${entry.collection}/${entry.id}/`, site);
   const isBlogPost = entry.collection === "blog";
 
+  const author = {
+    "@id": PERSON_ID(site),
+    "@type": "Person",
+    name: SITE.AUTHOR,
+    url: site.href,
+  };
+
   return {
     "@context": "https://schema.org",
     "@id": `${url}#article`,
     "@type": isBlogPost ? "BlogPosting" : "CreativeWork",
-    author: {
-      "@id": PERSON_ID(site),
-    },
+    author,
     dateModified: entry.data.date.toISOString(),
     datePublished: entry.data.date.toISOString(),
     description: entry.data.summary,
@@ -92,16 +97,17 @@ export const articleSchema = (
     inLanguage: "en",
     isPartOf: {
       "@id": WEBSITE_ID(site),
+      "@type": "WebSite",
+      name: SITE.TITLE,
+      url: site.href,
     },
-    keywords: entry.data.tags,
+    keywords: entry.data.tags.join(", "),
     mainEntityOfPage: {
       "@id": url,
       "@type": "WebPage",
     },
     name: entry.data.title,
-    publisher: {
-      "@id": PERSON_ID(site),
-    },
+    publisher: author,
     url,
   };
 };

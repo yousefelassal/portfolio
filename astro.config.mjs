@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: (page) => !page.includes("/search"),
+      filter: (page) => new URL(page).pathname !== "/search/",
     }),
     solidJs(),
     tailwind({ applyBaseStyles: false }),
