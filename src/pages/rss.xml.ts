@@ -24,8 +24,11 @@ export const GET = async (context: APIContext) => {
   );
 
   return rss({
+    customData: "<language>en</language>",
     description: SITE.DESCRIPTION,
     items: items.map(({ base, entry }) => ({
+      author: SITE.AUTHOR,
+      categories: entry.data.tags,
       description: entry.data.summary,
       link: `${base}/${entry.id}/`,
       pubDate: entry.data.date,

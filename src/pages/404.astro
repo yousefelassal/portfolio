@@ -1,0 +1,41 @@
+---
+import PageLayout from "@layouts/page-layout.astro";
+import TopLayout from "@layouts/top-layout.astro";
+---
+
+<PageLayout
+  title="Page not found"
+  description="The page you are looking for does not exist or has moved."
+  noindex
+>
+  <TopLayout>
+    <div class="animate">
+      <h1 class="text-3xl font-semibold text-black dark:text-white mt-2">
+        Page not found
+      </h1>
+      <p class="mt-1">
+        The page you are looking for does not exist or has moved.
+      </p>
+      <a
+        href="/"
+        class="mt-6 inline-flex w-fit items-center gap-1.5 rounded border border-black/15 p-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:dark:bg-white/10 dark:border-white/20"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="rotate-180 stroke-current"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+        Back home
+      </a>
+    </div>
+  </TopLayout>
+</PageLayout>
