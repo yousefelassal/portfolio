@@ -10,6 +10,6 @@ Handled the entire stack from backend using NestJS to frontend using Angular.
 - Integrated payment gateways and handled processing payments.
 - Handled signing in with Google and Apple.
 - Developed an event driven IVR solution using AWS EventBridge and Lambda Functions.
-- Implemented virus scanning for uploaded files using ClamAV.
+- Implemented virus scanning for uploaded files.
 - Architected and developed a provider agnostic sms service using strategy pattern.
 - Utilized RabbitMQ for event queuing.
