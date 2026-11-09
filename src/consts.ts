@@ -58,10 +58,10 @@ export const LINKS: Links = [
 // Socials
 export const SOCIALS: Socials = [
   {
-    HREF: "mailto:yousefelassal24@gmail.com",
+    HREF: "mailto:hi@yousefelassal.com",
     ICON: "email",
     NAME: "Email",
-    TEXT: "yousefelassal24@gmail.com",
+    TEXT: "hi@yousefelassal.com",
   },
   {
     HREF: "https://github.com/yousefelassal",
