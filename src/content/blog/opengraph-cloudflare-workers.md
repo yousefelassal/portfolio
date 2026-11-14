@@ -71,7 +71,7 @@ import { generateOgPng } from "./og";
 const app = new Hono();
 
 app.get("/preview", () =>
-  generateOgPng({ name: "Ahmed Hassan", service: "Air conditioning repair" })
+  generateOgPng({ name: "Adel Shakal", service: "Air conditioning repair" })
 );
 
 export default app;
@@ -97,7 +97,7 @@ app.get(
     cacheControl: "public, max-age=604800",
   }),
   () =>
-    generateOgPng({ name: "Ahmed Hassan", service: "Air conditioning repair" })
+    generateOgPng({ name: "Adel Shakal", service: "Air conditioning repair" })
 );
 ```
 
@@ -117,13 +117,13 @@ An image endpoint needs a link from the page's HTML. Set `og:image` and `twitter
 <meta property="og:image:height" content="630" />
 <meta
   property="og:image:alt"
-  content="Ahmed Hassan, air conditioning technician"
+  content="Adel Shakal, air conditioning technician"
 />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://og.example.com/preview" />
 <meta
   name="twitter:image:alt"
-  content="Ahmed Hassan, air conditioning technician"
+  content="Adel Shakal, air conditioning technician"
 />
 ```
 
@@ -141,12 +141,10 @@ There's no need for an image server in this setup. When someone shares a page, t
 
 This portfolio uses that same build-time approach through an Astro prerendered endpoint. During `astro build`, it reads the published blog posts and projects, renders their cards, and writes static PNGs alongside the site. It also generates cards for the homepage and main sections. The endpoint runs during the build, not when someone requests an image.
 
-The cards use the portfolio's local Atkinson fonts, black-and-white palette, and crescent motif. Shared image paths keep the Open Graph tags, Twitter tags, and article structured data aligned. A verification script checks that the generated pages reference real PNG files with the expected dimensions.
-
 If your project doesn't have prerendered endpoints, a build script gives you the same result. Keep fonts and other required assets local when possible, skip drafts, and check long titles before publishing.
 
 For Daleely, on-demand rendering lets profile changes reach the renderer without rebuilding the whole app. For this portfolio, rendering during the build fits how the content is published. You can use the same card design either way and choose when to generate it based on how your content changes.
 
-Here's one of Daleely's technician previews:
+Here's one of Daleely's technician previews featuring el gayar the cat:
 
 <img src="https://h4ej7o5mx1.ufs.sh/f/hqvJtwAnNHr9xVXJJz01cOXkoC9zQdljqn5MsWyGEUeL86VR" alt="Daleely link preview with a technician's photo, name, and service" width="auto" height="400"/>
