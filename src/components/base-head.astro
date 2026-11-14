@@ -1,4 +1,5 @@
 ---
+import { ogImagePath } from "@lib/og"
 import { ClientRouter } from "astro:transitions"
 import { SITE } from "@consts"
 import { OG_IMAGE, absoluteUrl, normalizeSchema, toJsonLd } from "@lib/seo"
@@ -9,7 +10,8 @@ type Props = SeoProps
 const {
   title,
   description,
-  image = OG_IMAGE.path,
+  image = ogImagePath(Astro.url.pathname),
+  imageAlt = `${title} preview`,
   type = "website",
   publishedTime,
   modifiedTime,
@@ -57,7 +59,7 @@ const schemas = normalizeSchema(schema)
 <meta property="og:image" content={imageURL} />
 <meta property="og:image:width" content={String(OG_IMAGE.width)} />
 <meta property="og:image:height" content={String(OG_IMAGE.height)} />
-<meta property="og:image:alt" content={`${SITE.TITLE} portfolio preview`} />
+<meta property="og:image:alt" content={imageAlt} />
 
 {type === "article" && publishedTime && (
   <meta property="article:published_time" content={publishedTime.toISOString()} />
@@ -78,7 +80,7 @@ const schemas = normalizeSchema(schema)
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
-<meta name="twitter:image:alt" content={`${SITE.TITLE} portfolio preview`} />
+<meta name="twitter:image:alt" content={imageAlt} />
 <meta name="twitter:site" content="@yousefalassal" />
 <meta name="twitter:creator" content="@yousefalassal" />
 

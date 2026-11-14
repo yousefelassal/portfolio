@@ -1,10 +1,13 @@
 import { SITE, SOCIALS } from "@consts";
 import type { CollectionEntry } from "astro:content";
 
+import { OG_DIMENSIONS, ogImagePath } from "./og";
+
 export interface SeoProps {
   title: string;
   description: string;
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
   publishedTime?: Date;
   modifiedTime?: Date;
@@ -14,9 +17,8 @@ export interface SeoProps {
 }
 
 export const OG_IMAGE = {
-  height: 480,
-  path: "/open-graph.jpg",
-  width: 960,
+  ...OG_DIMENSIONS,
+  path: ogImagePath("/"),
 } as const;
 
 const PERSON_ID = (site: URL) => `${site.href}#person`;
@@ -93,7 +95,7 @@ export const articleSchema = (
     datePublished: entry.data.date.toISOString(),
     description: entry.data.summary,
     headline: entry.data.title,
-    image: new URL(OG_IMAGE.path, site).href,
+    image: new URL(ogImagePath(`/${entry.collection}/${entry.id}/`), site).href,
     inLanguage: "en",
     isPartOf: {
       "@id": WEBSITE_ID(site),
